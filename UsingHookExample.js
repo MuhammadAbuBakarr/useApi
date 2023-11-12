@@ -23,10 +23,24 @@ const UsingHookExample = () => {
     apiCall("/get-call");
   }, []);
 
+  // Handle Post Call Response
+  useEffect(() => {
+    if (postResponse) {
+      // Handle Your API Response HERE
+    }
+  }, [postResponse]);
+
   // Handle GET Call Loading
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  //   Handle Error
+  if (error) {
+    return <div>An Error Occured!</div>;
+  }
+
+  // Calling postCall Function
   const handleSubmit = () => {
     postCall(
       "/post-call",
